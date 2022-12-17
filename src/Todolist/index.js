@@ -12,7 +12,7 @@ export function Todolist() {
     } else if (todoId === "") {
       setTodoData((oldArray) => [
         ...oldArray,
-        { id: ids, title: todo, complete: false }
+        { id: ids, title: todo, complete: false },
       ]);
       setTodo("");
       setTodoId("");
@@ -21,7 +21,7 @@ export function Todolist() {
       const findIds = todoData?.map((item, index) =>
         item.id === findId.id
           ? (item = { id: findId.id, title: todo, complete: false })
-          : { id: item.id, title: item.title }
+          : { ...item }
       );
       setTodoData(findIds);
       // const newTodoItems = [...todoData];
